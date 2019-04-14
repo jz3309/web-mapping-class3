@@ -3,36 +3,27 @@ mapboxgl.accessToken = 'pk.eyJ1IjoianozMzA5IiwiYSI6ImNqbGR4amJwMjBnODkza3V2ZzFxM
 
 var map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox://styles/mapbox/light-v9',
-  center: [-73.98, 40.70],
+  style: 'mapbox://styles/mapbox/dark-v9',
+  center: [-112.055367,40.639749],
   zoom: 9.5
 });
 
 map.addControl(new mapboxgl.NavigationControl());
 
-var popup = new mapboxgl.Popup({ offset: 40 })
-  .setText('Construction on the Washington Monument began in 1848.');
-
-var marker = new mapboxgl.Marker()
-  .setLngLat([-73.969145,40.669116])
-  .setPopup(popup) // sets a popup on this marker
-  .addTo(map);
-
 
 //load  all the itmes to console
-studentpizzashops.forEach(function(studentdata) {
+stationdata.forEach(function(station) {
 
-  var thisstudentscolor = 'steelblue';
-  if (studentdata.nyuprogram === 'wagner') thisstudentscolor = 'orange';
-  if (studentdata.nyuprogram === 'cusp') thisstudentscolor = 'purple';
-  if (studentdata.nyuprogram === 'adjunct') thisstudentscolor = 'green';
-  if (studentdata.nyuprogram === 'global liberal studies') thisstudentscolor = 'yellow';
+  var stationcolor = 'steelblue';
+  if (station.City === "SALT LAKE CITY") stationcolor = 'orange';
+  if (station.City === "MIDVALE") stationcolor = 'purple';
+  if (station.City === "MURRAY") stationcolor = 'green';
 
   new mapboxgl.Marker({
-    color: thisstudentscolor,
+    color: stationcolor
   })
-    .setLngLat([studentdata.lng, studentdata.lat])
-    .setPopup(new mapboxgl.Popup({ offset: 40})
-      .setText(`${studentdata.Name} says their favorite pizza shop is ${studentdata.favoritepizzashop}`))
+    .setLngLat([station.Lng, station.Lat])
+    .setPopup(new mapboxgl.Popup({openOnClick: false, offset: 40})
+      .setText(`${station.Address} Emissions test price: ${station.Price}`))
     .addTo(map);
 })
