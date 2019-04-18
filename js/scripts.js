@@ -10,7 +10,6 @@ var map = new mapboxgl.Map({
 
 map.addControl(new mapboxgl.NavigationControl());
 
-
 //load  all the itmes to console
 stationdata.forEach(function(station) {
 
@@ -19,9 +18,6 @@ stationdata.forEach(function(station) {
   if (station.City === "MIDVALE") stationcolor = 'purple';
   if (station.City === "MURRAY") stationcolor = 'green';
   if (station.City === "SOUTH JORDAN") stationcolor = 'red';
-  if (station.City === "RIVERTON") stationcolor = 'yellow';
-  if (station.City === "WEST VALLEY") stationcolor = 'pink';
-  if (station.City === "KEARNS") stationcolor = 'white';
 
 
   new mapboxgl.Marker({
