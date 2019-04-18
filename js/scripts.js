@@ -18,12 +18,17 @@ stationdata.forEach(function(station) {
   if (station.City === "SALT LAKE CITY") stationcolor = 'orange';
   if (station.City === "MIDVALE") stationcolor = 'purple';
   if (station.City === "MURRAY") stationcolor = 'green';
+  if (station.City === "SOUTH JORDAN") stationcolor = 'red';
+  if (station.City === "RIVERTON") stationcolor = 'yellow';
+  if (station.City === "WEST VALLEY") stationcolor = 'pink';
+  if (station.City === "KEARNS") stationcolor = 'white';
+
 
   new mapboxgl.Marker({
     color: stationcolor
   })
     .setLngLat([station.Lng, station.Lat])
     .setPopup(new mapboxgl.Popup({openOnClick: false, offset: 40})
-      .setText(`${station.Address} Emissions test price: ${station.Price}`))
+      .setText(`${station.Address}Emissions test price:${station.Price}`))
     .addTo(map);
 })
