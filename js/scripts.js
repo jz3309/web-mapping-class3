@@ -22,11 +22,15 @@ stationdata.forEach(function(station) {
 
   new mapboxgl.Marker({
     color: stationcolor;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+
   })
     .setLngLat([station.Lng, station.Lat])
-    .setPopup(new mapboxgl.Popup({closebutton:false,openOnClick: false, offset: 40})
-      .setHTML(`
-        <h4>${station.Address}</h4><br/>
-        <p>Emission test price:${station.Price}</p>`))
+    .setPopup(new mapboxgl.Popup({openOnClick: false, offset: 40})
+      .setHTML(
+        '<h4>'+${station.Address}'</h4><br/><p>'+ ${station.Price}'</p>'))
     .addTo(map);
 })
