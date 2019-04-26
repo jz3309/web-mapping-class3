@@ -5,7 +5,7 @@ var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/mapbox/streets-v11',
   center: [-112.055367,40.639749],
-  zoom: 9.5
+  zoom: 11.5
 });
 
 map.addControl(new mapboxgl.NavigationControl());
@@ -21,7 +21,7 @@ stationdata.forEach(function(station) {
 
 
   new mapboxgl.Marker({
-    color: stationcolor
+    color: stationcolor;
   })
     .setLngLat([station.Lng, station.Lat])
     .setPopup(new mapboxgl.Popup({closebutton:false,openOnClick: false, offset: 40})
