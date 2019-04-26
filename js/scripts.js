@@ -26,6 +26,6 @@ stationdata.forEach(function(station) {
     .setLngLat([station.Lng, station.Lat])
     .setPopup(new mapboxgl.Popup({openOnClick: false, offset: 40})
       .setText(`
-        ${station.Address}:${station.Price}`))
+        ${station.Address}${station.Price}`))
     .addTo(map);
 })
