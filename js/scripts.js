@@ -3,7 +3,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoianozMzA5IiwiYSI6ImNqbGR4amJwMjBnODkza3V2ZzFxM
 
 var map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox://styles/mapbox/dark-v9',
+  style: 'mapbox://styles/mapbox/streets-v11',
   center: [-112.055367,40.639749],
   zoom: 9.5
 });
@@ -24,7 +24,9 @@ stationdata.forEach(function(station) {
     color: stationcolor
   })
     .setLngLat([station.Lng, station.Lat])
-    .setPopup(new mapboxgl.Popup({openOnClick: false, offset: 40})
-      .setText(`${station.Address}Emissions test price:${station.Price}`))
+    .setPopup(new mapboxgl.Popup({closebutton:false,openOnClick: false, offset: 40})
+      .setText(`
+        <h4>${station.Address}</h4><br/>
+        <p>Emissions test price:${station.Price}</p>`))
     .addTo(map);
 })
