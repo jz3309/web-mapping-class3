@@ -27,6 +27,6 @@ stationdata.forEach(function(station) {
     .setPopup(new mapboxgl.Popup({closebutton:false,openOnClick: false, offset: 40})
       .setHTML(`
         <h4>${station.Address}</h4><br/>
-        <p>Emissions test price:${station.Price}</p>`))
+        <p>Emission test price:${station.Price}</p>`))
     .addTo(map);
 })
