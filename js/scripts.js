@@ -25,7 +25,7 @@ stationdata.forEach(function(station) {
   })
     .setLngLat([station.Lng, station.Lat])
     .setPopup(new mapboxgl.Popup({closebutton:false,openOnClick: false, offset: 40})
-      .setText(`
+      .setHTML(`
         <h4>${station.Address}</h4><br/>
         <p>Emissions test price:${station.Price}</p>`))
     .addTo(map);
