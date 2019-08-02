@@ -1,0 +1,84 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Assignment3-utah-emmisions-test-stations</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #map {
+            position: absolute;
+            top: 1px;
+            bottom: 1px;
+            width: 100%;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <style>
+        .map-overlay {
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            position: absolute;
+            width: 25%;
+            height: 30%;
+            top: 0;
+            left: 0;
+            padding: 10px;
+        }
+        
+        .map-overlay .map-overlay-inner {
+            background-color: #fff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+            border-radius: 3px;
+            padding: 20px;
+            <h3>margin-bottom: 10px;
+            width: 70%;
+            height: 100%;
+        }
+        
+        .map-overlay h2 {
+            line-height: 30px;
+            display: block;
+            margin: 0 0 10px;
+        }
+    </style>
+
+    <div id='map'></div>
+
+    <div class='map-overlay top'>
+        <div class='map-overlay-inner'>
+            <h2>B57 BUS TRACKER</h2>
+            <h4>Click the label to get the name of the station.</h4>
+            <ul>
+                <li>Lincoln St /Rockaway Bl Lincoln St /Foch Bl Lincoln St /116 Av Lincoln St /115 Av Lincoln St /Linden Bl 135 St /111 Av 135 St /109 Av 135 St /107 Av 135 St /105 Av Liberty Av /Van Wyck Exp Liberty Av /Remington St Liberty Av /Inwood St
+                    Liberty Av /Liverpool St Sutphin Bl /Liberty Av Sutphin Bl /95 Av Sutphin Bl/Archer Av Jamaica Av /148 St Jamaica Av /153 St Jamaica Av /162 St Jamaica Av /165 St 168 St /Jamaica Av 165 St Term/Mta Bus Stand
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="js/stationdata.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
