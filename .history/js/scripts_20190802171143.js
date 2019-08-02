@@ -2,9 +2,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoianozMzA5IiwiYSI6ImNqbGR4amJwMjBnODkza3V2ZzFxM
 
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/light-v10',
+    style: 'mapbox://styles/mapbox/streets-v11',
     center: [-73.799947, 40.689238],
-    zoom: 13.6
+    zoom: 14
 });
 
 map.addControl(new mapboxgl.NavigationControl());
@@ -14,17 +14,18 @@ stationdata.forEach(function(station) {
 
     var stationcolor = 'orange';
 
-    new mapboxgl.Marker({
-            color: stationcolor,
+    var el = document.createElement('div');
+    el.className = 'marker';
+    el.style.backgroundImage = 'url(https://i.postimg.cc/C1CbwxGJ/bus-icon-png-7.png)';
+    el.style.width = '50px';
+    el.style.height = '50px';
 
-        })
+    new mapboxgl.Marker(el)
         .setLngLat([station.Lng, station.Lat])
         .setPopup(new mapboxgl.Popup({ openOnClick: false, offset: 40 })
             .setText(`Station Name:${station.stops}`))
         .addTo(map);
 });
-
-
 
 // add line
 map.on('load', function() {

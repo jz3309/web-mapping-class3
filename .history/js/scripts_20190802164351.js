@@ -2,9 +2,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoianozMzA5IiwiYSI6ImNqbGR4amJwMjBnODkza3V2ZzFxM
 
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/light-v10',
-    center: [-73.799947, 40.689238],
-    zoom: 13.6
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [-73.794247, 40.689238],
+    zoom: 13
 });
 
 map.addControl(new mapboxgl.NavigationControl());
@@ -23,8 +23,6 @@ stationdata.forEach(function(station) {
             .setText(`Station Name:${station.stops}`))
         .addTo(map);
 });
-
-
 
 // add line
 map.on('load', function() {
@@ -203,7 +201,7 @@ map.on('load', function() {
         },
         "paint": {
             "line-color": "#888",
-            "line-width": 10
+            "line-width": 8
         }
     });
 });

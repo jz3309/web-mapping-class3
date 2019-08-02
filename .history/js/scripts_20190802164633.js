@@ -2,9 +2,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoianozMzA5IiwiYSI6ImNqbGR4amJwMjBnODkza3V2ZzFxM
 
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/light-v10',
-    center: [-73.799947, 40.689238],
-    zoom: 13.6
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [-73.794247, 40.689238],
+    zoom: 13
 });
 
 map.addControl(new mapboxgl.NavigationControl());
@@ -24,7 +24,39 @@ stationdata.forEach(function(station) {
         .addTo(map);
 });
 
+map.on('load', function() {
 
+    map.addLayer({
+        'id': 'population',
+        'type': 'circle',
+        'source': {
+            type: 'vector',
+            url: 'mapbox://examples.8fgz4egr'
+        },
+        'source-layer': 'sf2010',
+        'paint': {
+            // make circles larger as the user zooms from z12 to z22
+            'circle-radius': {
+                'base': 1.75,
+                'stops': [
+                    [12, 2],
+                    [22, 180]
+                ]
+            },
+            // color circles by ethnicity, using a match expression
+            // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+            'circle-color': [
+                'match', ['get', 'ethnicity'],
+                'White', '#fbb03b',
+                'Black', '#223b53',
+                'Hispanic', '#e55e5e',
+                'Asian', '#3bb2d0',
+                /* other */
+                '#ccc'
+            ]
+        }
+    });
+})
 
 // add line
 map.on('load', function() {

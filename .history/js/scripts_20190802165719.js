@@ -2,29 +2,32 @@ mapboxgl.accessToken = 'pk.eyJ1IjoianozMzA5IiwiYSI6ImNqbGR4amJwMjBnODkza3V2ZzFxM
 
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/light-v10',
+    style: 'mapbox://styles/mapbox/streets-v11',
     center: [-73.799947, 40.689238],
-    zoom: 13.6
+    zoom: 14
 });
 
 map.addControl(new mapboxgl.NavigationControl());
 
-//load  all the itmes to console
-stationdata.forEach(function(station) {
+map.on('load', function() {
 
-    var stationcolor = 'orange';
-
-    new mapboxgl.Marker({
-            color: stationcolor,
-
-        })
-        .setLngLat([station.Lng, station.Lat])
-        .setPopup(new mapboxgl.Popup({ openOnClick: false, offset: 40 })
-            .setText(`Station Name:${station.stops}`))
-        .addTo(map);
-});
-
-
+    map.addLayer({
+        'id': 'point',
+        'type': 'circle',
+        'source': {
+            type: 'vector',
+            data: './stationdata.js'
+        },
+        'source-layer': 'sf2010',
+        'paint': {
+            // make circles larger as the user zooms from z12 to z22
+            'circle-radius': 4,
+            // color circles by ethnicity, using a match expression
+            // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+            'circle-color': 'orange',
+        }
+    });
+})
 
 // add line
 map.on('load', function() {
